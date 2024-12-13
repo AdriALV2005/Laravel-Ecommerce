@@ -22,6 +22,7 @@ yarn-error.log
 /.vscode
 /.zed
 /public/uploads/products/*
+/public/uploads/slides/*
 !/public/uploads/products/thumbnails/
 /public/uploads/products/thumbnails/*
 !/public/uploads/products/thumbnails/.gitkeep
