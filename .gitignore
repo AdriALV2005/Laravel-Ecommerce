@@ -23,6 +23,7 @@ yarn-error.log
 /.zed
 /public/uploads/products/*
 /public/uploads/slides/*
+/public/uploads/categories/*
 !/public/uploads/products/thumbnails/
 /public/uploads/products/thumbnails/*
 !/public/uploads/products/thumbnails/.gitkeep
