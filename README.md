@@ -1,15 +1,9 @@
 
-# 🎯 Adri Tasks - Aplicación de Gestión de Tareas
+# 🎯 Purrfect Shop - Plataforma de E-commerce
 
   
 
-**Adri Tasks** es una poderosa aplicación de gestión de tareas construida con Next.js, diseñada para ayudarte a organizar y priorizar tu trabajo de manera eficiente. Con una interfaz moderna y fácil de usar, ¡mejora tu productividad ahora! 🚀
-
-  
-
-🌐 **[Aplicación Desplegada Aquí](https://next-track-three.vercel.app/)**
-
-  
+**Purrfect Shop** es una aplicación de e-commerce desarrollada en Laravel. Diseñada para gestionar productos, categorías, marcas, cupones, órdenes y usuarios de forma eficiente, cuenta con un panel de administración intuitivo para administrar cada aspecto del negocio. 🚀
 
 ---
 
@@ -22,7 +16,8 @@
 ¡A continuación puedes ver una vista previa de la aplicación! No olvides añadir tus propias imágenes aquí para mostrar cómo luce:
 
   
-<img src="https://i.ibb.co/NKcspXz/Captura-de-pantalla-2024-10-23-160131.png" alt="Adri Tasks" style="width: 100%; height: auto;" />
+<img src="https://i.ibb.co/mTHgd24/Captura-de-pantalla-2024-12-16-020623.png" alt="Purrfect Shop" style="width: 100%; height: auto;" />
+<img src="https://i.ibb.co/wK6Y80R/Captura-de-pantalla-2024-12-16-021056.png" alt="Purrfect Shop" style="width: 100%; height: auto;" />
 
   
 
@@ -33,47 +28,71 @@
 
 ### Requisitos Previos
 
-- ⚡ Node.js (versión 14 o superior)
-- 📦 npm o yarn
+- 🐘 **PHP 8.1 o superior**  
+- 🎼 **Composer**  
+- 🟢 **Node.js y npm** (para la compilación de assets con Laravel Mix)  
+- 🗄️ **MySQL** u otro sistema de base de datos compatible  
 
 ### Pasos
 
 1. Clona el repositorio:
 
    ```bash
-   git clone https://github.com/AdriALV2005/Next-Track.git
+   git clone https://github.com/AdriALV2005/Laravel-Ecommerce
 1. Navega al directorio del proyecto::
 
    ```bash
-   cd Next-Track
-1. Instala las dependencias::
+   cd Laravel-Ecommerce
+1. Instala las dependencias de PHP:
+
+   ```bash
+   composer install
+1. Instala las dependencias de Node.js:
 
    ```bash
    npm install
-1. Crea un archivo `.env.local` y configura tus variables de entorno:
+1. Copia el archivo de entorno y configura las variables necesarias:
 
    ```bash
-   NEXT_PUBLIC_APP_URL=http://localhost:3000 NEXT_PUBLIC_APPWRITE_ENDPOINT=<tu-endpoint-de-appwrite> NEXT_PUBLIC_APPWRITE_PROJECT=<tu-id-del-proyecto> NEXT_PUBLIC_APPWRITE_DATABASE_ID=<tu-id-de-la-base-de-datos> NEXT_PUBLIC_APPWRITE_WORKSPACES_ID=<tu-id-de-workspaces> NEXT_PUBLIC_APPWRITE_MEMBERS_ID=<tu-id-de-miembros> NEXT_PUBLIC_APPWRITE_PROJECTS_ID=<tu-id-de-proyectos> NEXT_PUBLIC_APPWRITE_TASKS_ID=<tu-id-de-tareas> NEXT_PUBLIC_APPWRITE_IMAGES_BUCKET_ID=<tu-id-del-bucket-de-imágenes> NEXT_APPWRITE_KEY=<tu-clave-appwrite>
-1. Ejecuta el servidor de desarrollo:
+   cp .env.example .env
+1. Configura las variables de entorno en el archivo .env, incluyendo la conexión a la base de datos:
+
+   ```bash
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=purrfect_shop
+    DB_USERNAME=tu_usuario
+    DB_PASSWORD=tu_contraseña
+1. Genera la clave de aplicación:
+
+   ```bash
+   php artisan key:generate
+1. Ejecuta las migraciones y seeders:
+
+   ```bash
+   php artisan migrate --seed
+1. Compila los assets:
 
    ```bash
    npm run dev
+
+1. Inicia el servidor local:
+
+   ```bash
+   php artisan serve
+
 ## ✨ Características
 
   
 
-- 🔐 **Autenticación Segura**: Inicio de sesión y registro usando correo electrónico/contraseña, con integración de OAuth (Google, GitHub).
-
-- 📝 **Gestión de Tareas**: Crea, edita y elimina tareas. Organiza tus tareas por proyecto y prioridad.
-
-- 📊 **Analíticas de Proyectos**: Visualiza estadísticas sobre tus tareas, como el total de tareas, tareas completadas, y vencidas.
-
-- 📱 **Diseño Responsivo**: Totalmente optimizado para dispositivos móviles y de escritorio.
-
-- 🌙 **Modo Oscuro**: Cambia entre modo claro y oscuro para tu preferencia visual.
-
-- 🗂️ **Gestión de Proyectos**: Administra múltiples proyectos y sus respectivas tareas.
-
+- 🛍️ Gestión de Productos: Crea, edita y elimina productos, con imágenes y descripciones.
+- 🗂️ Categorías y Marcas: Clasifica productos en categorías y gestiona sus marcas.
+- 🎟️ Cupones: Aplica descuentos a los pedidos con cupones personalizables.
+- 📦 Gestión de Pedidos: Visualiza, actualiza y administra pedidos de clientes.
+- 📊 Dashboard Administrativo: Resumen de estadísticas clave del negocio.
+- 🔐 Autenticación y Roles: Acceso seguro con roles para administradores y usuarios.
+- 📱 Diseño Responsivo: Totalmente optimizado para dispositivos móviles.
   
 
 ---
@@ -84,20 +103,17 @@
 
   
 
--  **Next.js**: Framework de React para renderizado del lado del servidor y generación de sitios estáticos.
+-  **Laravel**: Framework PHP para desarrollo web.
 
--  **React**: Librería JavaScript para construir interfaces de usuario.
+-  **Blade**: Motor de plantillas de Laravel.
 
--  **TypeScript**: Añade tipos estáticos a JavaScript para mejorar la robustez del código.
+-  **MySQL**: Sistema de gestión de bases de datos.
 
--  **Tailwind CSS**: Framework de CSS basado en utilidades para un desarrollo rápido de interfaces.
+-  **Tailwind CSS**: Framework CSS para diseño rápido.
 
--  **React Query**: Gestión del estado y de las consultas a la API en aplicaciones React.
+-  **Intervention Image**: Manejo de imágenes.
 
--  **Appwrite**: Servidor backend para gestionar autenticación y bases de datos.
-
--  **Lucide React Icons**: Librería de íconos.
-
+-  **Carbon**: Biblioteca de manejo de fechas en PHP.
   
 
 ---
@@ -106,36 +122,18 @@
 
 ## 🚀 Uso
 
+### Panel de Administración
+
+1.  Accede al panel administrativo en http://localhost:8000/admin.
+2.  Inicia sesión con las credenciales del administrador (definidas en el seeder o manualmente).
+3.  Gestiona productos, categorías, marcas, cupones y pedidos desde el panel.
   
 
-Una vez configuradas las variables de entorno e instaladas las dependencias, puedes ejecutar la aplicación en modo desarrollo o producción, utilizando los comandos adecuados.
+### Funciones de Usuario
 
-  
-
-### Autenticación
-
-  
-
-La aplicación soporta autenticación con Google y GitHub utilizando OAuth, además del registro tradicional con correo electrónico y contraseña.
-
-  
-
-### Analíticas
-
-  
-
-Cada espacio de trabajo y proyecto tiene un panel de analíticas que muestra datos clave como:
-
-  
-
-- 📊 Total de tareas
-
-- 👤 Tareas asignadas
-
-- ✅ Tareas completadas
-
-- ⏰ Tareas vencidas
-
+1.  Los usuarios pueden registrarse e iniciar sesión.
+2.  Explora y añade productos al carrito.
+3.  Aplica cupones y realiza compras.
   
 
 ---
@@ -149,20 +147,21 @@ Cada espacio de trabajo y proyecto tiene un panel de analíticas que muestra dat
 La estructura del proyecto sigue un diseño modular que facilita el desarrollo y mantenimiento.
 
 ```
-├── components
-│   ├── analytics/
-│   ├── auth/
-│   ├── dashboard/
-│   ├── tasks/
-│   └── ui/
-├── features
-│   ├── auth/
-│   ├── members/
-│   ├── projects/
-│   └── tasks/
-├── pages
-│   ├── api/
-│   ├── dashboard/
-│   └── sign-in/
+├── app/Http/Controllers/
+│   ├── AdminController.php
+│   ├── CartController.php
+│   ├── HomeController.php
+│   ├── ShopController.php
+│   ├── UserController.php
+│   └── WishlistController.php
+├── database/migrations/
 ├── public/
-└── styles/
+├── resources/views/
+│   ├── admin/
+│   ├── cart/
+│   ├── layouts/
+│   ├── shop/
+│   └── user/
+├── routes/
+│   └── web.php
+└── .env.example
