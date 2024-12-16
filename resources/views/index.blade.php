@@ -18,21 +18,19 @@
                         <img loading="lazy" src="{{asset('uploads/slides')}}/{{$slide->image}}" width="542" height="733"
                             alt="Woman Fashion 1"
                             class="slideshow-character__img animate animate_fade animate_btt animate_delay-9 w-auto h-auto" />
-                        <div class="character_markup type2">
-                            <p class="text-uppercase font-sofia mark-grey-color animate animate_fade animate_btt animate_delay-10 mb-0">
-                                {{$slide->tagline}}
-                            </p>
-                        </div>
                     </div>
                     <div class="slideshow-text container position-absolute start-50 top-50 translate-middle">
                         <h6 class="text_dash text-uppercase fs-base fw-medium animate animate_fade animate_btt animate_delay-3">
-                            New Arrivals
+                            {{$slide->tagline}}
                         </h6>
-                        <h2 class="h1 fw-normal mb-0 animate animate_fade animate_btt animate_delay-5">{{$slide->title}}</h2>
-                        <h2 class="h1 fw-bold animate animate_fade animate_btt animate_delay-5">{{$slide->subtitle}}</h2>
+                        <h2 class="h1 fw-normal mb-0 animate animate_fade animate_btt animate_delay-5" >{{$slide->title}}</h2>
+                        <br/>
+                        <h2 class="h1 fw-bold animate animate_fade animate_btt animate_delay-5"  style="max-width: 500px; word-wrap: break-word; font-size: 24px;">
+                            {{$slide->subtitle}}
+                        </h2>
+                        <br/>
                         <a href="{{$slide->link}}"
-                            class="btn-link btn-link_lg default-underline fw-medium animate animate_fade animate_btt animate_delay-7">Shop
-                            Now</a>
+                            class="btn-link btn-link_lg default-underline fw-medium animate animate_fade animate_btt animate_delay-7">Compra ahora!</a>
                     </div>
                 </div>
             </div>
@@ -48,7 +46,7 @@
     <div class="container mw-1620 bg-white border-radius-10">
         <div class="mb-3 mb-xl-5 pt-1 pb-4"></div>
         <section class="category-carousel container">
-            <h2 class="section-title text-center mb-3 pb-xl-2 mb-xl-4">You Might Like</h2>
+            <h2 class="section-title text-center mb-3 pb-xl-2 mb-xl-4">Te podría gustar ...</h2>
 
             <div class="position-relative">
                 <div class="swiper-container js-swiper-slider" data-settings='{
@@ -119,12 +117,12 @@
         <div class="mb-3 mb-xl-5 pt-1 pb-4"></div>
 
         <section class="hot-deals container">
-            <h2 class="section-title text-center mb-3 pb-xl-3 mb-xl-4">Hot Deals</h2>
+            <h2 class="section-title text-center mb-3 pb-xl-3 mb-xl-4">Ofertas especiales</h2>
             <div class="row">
                 <div
                     class="col-md-6 col-lg-4 col-xl-20per d-flex align-items-center flex-column justify-content-center py-4 align-items-md-start">
-                    <h2>Summer Sale</h2>
-                    <h2 class="fw-bold">Up to 60% Off</h2>
+                    <h2>Venta de Verano</h2>
+                    <h2 class="fw-bold">Hasta 60% de Descuento</h2>
 
                     <div class="position-relative d-flex align-items-center text-center pt-xxl-4 js-countdown mb-3"
                         data-date="18-3-2024" data-time="06:50">
@@ -149,7 +147,7 @@
                         </div>
                     </div>
 
-                    <a href="{{route('shop.index')}}" class="btn-link default-underline text-uppercase fw-medium mt-3">View All</a>
+                    <a href="{{route('shop.index')}}" class="btn-link default-underline text-uppercase fw-medium mt-3">Mira todos!</a>
                 </div>
                 <div class="col-md-6 col-lg-8 col-xl-80per">
                     <div class="position-relative">
@@ -200,9 +198,9 @@
                                         <div class="product-card__price d-flex">
                                             <span class="money price text-secondary">
                                                 @if($sproduct->sale_price)
-                                                <s>${{$sproduct->regular_price}}</s> ${{$sproduct->sale_price}}
+                                                <s>${{$sproduct->regular_price}}</s> s/.{{$sproduct->sale_price}}
                                                 @else
-                                                ${{$sproduct->regular_price}}
+                                                s/.{{$sproduct->regular_price}}
                                                 @endif
                                             </span>
                                         </div>
@@ -218,41 +216,12 @@
 
         <div class="mb-3 mb-xl-5 pt-1 pb-4"></div>
 
-        <section class="category-banner container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="category-banner__item border-radius-10 mb-5">
-                        <img loading="lazy" class="h-auto" src="{{asset('assets/images/home/demo3/category_9.jpg')}}" width="690" height="665"
-                            alt="" />
-                        <div class="category-banner__item-mark">
-                            Starting at $19
-                        </div>
-                        <div class="category-banner__item-content">
-                            <h3 class="mb-0">Blazers</h3>
-                            <a href="#" class="btn-link default-underline text-uppercase fw-medium">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="category-banner__item border-radius-10 mb-5">
-                        <img loading="lazy" class="h-auto" src="{{asset('assets/images/home/demo3/category_10.jpg')}}" width="690" height="665"
-                            alt="" />
-                        <div class="category-banner__item-mark">
-                            Starting at $19
-                        </div>
-                        <div class="category-banner__item-content">
-                            <h3 class="mb-0">Sportswear</h3>
-                            <a href="#" class="btn-link default-underline text-uppercase fw-medium">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+       
 
         <div class="mb-3 mb-xl-5 pt-1 pb-4"></div>
 
         <section class="products-grid container">
-            <h2 class="section-title text-center mb-3 pb-xl-3 mb-xl-4">Featured Products</h2>
+            <h2 class="section-title text-center mb-3 pb-xl-3 mb-xl-4">Productos Destacados</h2>
 
             <div class="row">
                 @foreach($fproducts as $fproduct)
@@ -270,9 +239,9 @@
                             <div class="product-card__price d-flex align-items-center">
                                 <span class="money price text-secondary">
                                     @if($fproduct->sale_price)
-                                    <s>${{$fproduct->regular_price}}</s> ${{$fproduct->sale_price}}
+                                    <s>s/.{{$fproduct->regular_price}}</s> ${{$fproduct->sale_price}}
                                     @else
-                                    ${{$fproduct->regular_price}}
+                                    s/.{{$fproduct->regular_price}}
                                     @endif
                                 </span>
                             </div>
@@ -283,7 +252,7 @@
             </div><!-- /.row -->
 
             <div class="text-center mt-2">
-                <a class="btn-link btn-link_lg default-underline text-uppercase fw-medium" href="#">Load More</a>
+                <a class="btn-link btn-link_lg default-underline text-uppercase fw-medium" href="#">Carga más</a>
             </div>
         </section>
     </div>

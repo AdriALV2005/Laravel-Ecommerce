@@ -12,27 +12,35 @@
 <main class="pt-90">
     <div class="mb-4 pb-4"></div>
     <section class="shop-checkout container">
-        <h2 class="page-title">Cart</h2>
+        <h2 class="page-title">Carrito</h2>
         <div class="checkout-steps">
             <a href="javascript::void(0)" class="checkout-steps__item active">
                 <span class="checkout-steps__item-number">01</span>
                 <span class="checkout-steps__item-title">
-                    <span>Shopping Bag</span>
-                    <em>Manage Your Items List</em>
+                    <span>Bolsa de compras</span>
+                    <em>Gestiona tu lista de artículos
+
+                    </em>
                 </span>
             </a>
             <a href="javascript::void(0)" class="checkout-steps__item">
                 <span class="checkout-steps__item-number">02</span>
                 <span class="checkout-steps__item-title">
-                    <span>Shipping and Checkout</span>
-                    <em>Checkout Your Items List</em>
+                    <span>Envío y Pago
+
+                    </span>
+                    <em>Revisa tu lista de artículos
+
+                    </em>
                 </span>
             </a>
             <a href="javascript::void(0)" class="checkout-steps__item">
                 <span class="checkout-steps__item-number">03</span>
                 <span class="checkout-steps__item-title">
-                    <span>Confirmation</span>
-                    <em>Review And Submit Your Order</em>
+                    <span>Confirmación</span>
+                    <em>Revisa y envía tu pedido
+
+                    </em>
                 </span>
             </a>
         </div>
@@ -42,10 +50,10 @@
                 <table class="cart-table">
                     <thead>
                         <tr>
-                            <th>Product</th>
+                            <th>Producto</th>
                             <th></th>
-                            <th>Price</th>
-                            <th>Quantity</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
                             <th>Subtotal</th>
                             <th></th>
                         </tr>
@@ -61,14 +69,10 @@
                             <td>
                                 <div class="shopping-cart__product-item__detail">
                                     <h4>{{$item->name}}</h4>
-                                    <ul class="shopping-cart__product-item__options">
-                                        <li>Color: Yellow</li>
-                                        <li>Size: L</li>
-                                    </ul>
                                 </div>
                             </td>
                             <td>
-                                <span class="shopping-cart__product-price">${{$item->price}}</span>
+                                <span class="shopping-cart__product-price">s./{{$item->price}}</span>
                             </td>
                             <td>
                                 <div class="qty-control position-relative">
@@ -87,7 +91,7 @@
                                 </div>
                             </td>
                             <td>
-                                <span class="shopping-cart__subtotal">${{$item->subTotal()}}</span>
+                                <span class="shopping-cart__subtotal">s/.{{$item->subTotal()}}</span>
                             </td>
                             <td>
                                 <form method="POST" action="{{route('cart.item.remove',['rowId'=>$item->rowId])}}">
@@ -123,7 +127,7 @@
                     <form action="{{route('cart.empty')}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-light" type="submit">CLEAR CART</button>
+                        <button class="btn btn-light" type="submit">Limpiar Carrito</button>
                     </form>
                 </div>
                 <div>
@@ -137,7 +141,7 @@
             <div class="shopping-cart__totals-wrapper">
                 <div class="sticky-content">
                     <div class="shopping-cart__totals">
-                        <h3>Cart Totals</h3>
+                        <h3>Total del Carrito</h3>
                         @if(Session::has('discounts'))
                         <table class="cart-totals">
                             <tbody>
@@ -146,18 +150,12 @@
                                     <td>${{Cart::instance('cart')->subtotal()}}</td>
                                 </tr>
                                 <tr>
-                                    <th>Discount {{Session::get('coupon')['code']}}</th>
+                                    <th>Descuento {{Session::get('coupon')['code']}}</th>
                                     <td>${{Session::get('discounts')['discount']}}</td>
                                 </tr>
                                 <tr>
-                                    <th>Subtotal After Discount</th>
+                                    <th>Subtotal despues del descuento</th>
                                     <td>${{Session::get('discounts')['subtotal']}}</td>
-                                </tr>
-                                <tr>
-                                    <th>Shipping</th>
-                                    <td>
-                                        Free
-                                    </td>
                                 </tr>
                                 <tr>
                                     <th>VAT</th>
@@ -177,12 +175,6 @@
                                     <td>${{Cart::instance('cart')->subtotal()}}</td>
                                 </tr>
                                 <tr>
-                                    <th>Shipping</th>
-                                    <td>
-                                        Free
-                                    </td>
-                                </tr>
-                                <tr>
                                     <th>VAT</th>
                                     <td>${{Cart::instance('cart')->tax()}}</td>
                                 </tr>
@@ -196,7 +188,9 @@
                     </div>
                     <div class="mobile_fixed-btn_wrapper">
                         <div class="button-wrapper container">
-                            <a href="{{route('cart.checkout')}}" class="btn btn-primary btn-checkout">PROCEED TO CHECKOUT</a>
+                            <a href="{{route('cart.checkout')}}" class="btn btn-primary btn-checkout">Proceder al pago
+
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -204,8 +198,8 @@
             @else
             <div class="row">
                 <div class="col-md-12 text-center pt-5 bp-5">
-                    <p>No item found in your cart.</p>
-                    <a href="{{route('shop.index')}}" class="btn btn-info">Shop Now</a>
+                    <p>No se encontraron productos en tu carrito.</p>
+                    <a href="{{route('shop.index')}}" class="btn btn-info">Compra ahora!</a>
                 </div>
             </div>
             @endif
